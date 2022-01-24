@@ -1,10 +1,10 @@
 
 #
 
-<div style="display:block;text-align:left"><a href="https://github.com/Eccentrici/" imageanchor="1"><img align="left" src="https://c.tenor.com/WIqvnT_7Vj8AAAAi/terry-a-davis-terry-davis.gif" border="" style="width:200px;"></div>
+<div style="display:block;text-align:left"><a href="https://github.com/Eccentrici/" imageanchor="1"><img align="left" src="https://c.tenor.com/WIqvnT_7Vj8AAAAi/terry-a-davis-terry-davis.gif" border="" style="width:200px;"></a></div>
     
     
-### GodspeakAPI
+## GodspeakAPI
 <p>A simple API for generating random words ("godspeaks"), inspired by the works of Terrence Andrew Davis (Rest In Peace, King).</p>
 
 ### Installation  
@@ -13,16 +13,25 @@ git clone https://github.com/eccentrici/godspeakapi.git
 cd godspeakapi
 pip install -r r.txt
 python main.py
- ```
- ### Usage
- <p>If you don't wish to host the GodspeakAPI yourself; I offer my own public available API at http://i386.tk/. I will be using that website below, if you are self hosting; use your loopback or your fowarded host.</p>
+```
+### Usage
+<p>If you don't wish to host the GodspeakAPI yourself; I offer my own public 
+available API at <a href="http://i386.tk/">i386.tk</a>. I will be using that 
+website below, if you are self hosting; use your loopback or your fowarded host.</p>
  
 ```sh
 curl -L -X GET -H 'Content-Type: application/json' http://i386.tk/get\?num\=1 
 ```
-Currently the "Happy.TXT" file, which was used by Terry in his Happy.sh program, is used for Godspeak. Additional support for the "Vocab.DD" file - that features a far greater amount of words - will be added soon.
+
+If you wish to use the Vocab.DD vocabulary:
+
+```sh
+curl -L -X GET -H 'Content-Type: application/json' http://i386.tk/get\?num\=5&dict=vocab
+```
+
 ### Example
 Usage within the Python Interpreter:
+
 ```python
 >>> import requests
 >>> response = requests.get('http://i386.tk/get?num=1')
