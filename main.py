@@ -19,13 +19,13 @@ def requestRoute():
         query = int(request.args.get('num'))
         numbers = [random.randint(0, 712) for i in range(query)]
 
-        vocab = str(request.args.get('vocab'))
-        if vocab.startswith('vocab'):
-            vocab = 'Vocab.DD'
+        dictionary = str(request.args.get('dict'))
+        if dictionary.startswith('vocab'):
+            dictionary = 'Vocab.DD'
         else:
-            vocab = 'Happy.TXT'
+            dictionary = 'Happy.TXT'
 
-        file = open(vocab, "r")
+        file = open(dictionary, "r")
         data = file.read()
         vocabList = data.split("\n")
         file.close()
