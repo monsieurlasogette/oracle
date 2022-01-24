@@ -37,7 +37,7 @@ def requestRoute():
             godswords.append(vocabList[i])
 
         speaketh = ' '.join(godswords)
-        data = {"Count": f"{query}", "Godspeak": f"{speaketh}", "Time": f"{unixTime}"}
+        data = {"count": f"{query}", "godspeak": f"{speaketh}", "time": f"{unixTime}"}
         s = 200
 
     except:
@@ -59,4 +59,3 @@ if __name__ == "__main__":
         port = 8080
 
     app.run(host="0.0.0.0", port=port)
-
