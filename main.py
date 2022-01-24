@@ -29,9 +29,11 @@ def requestRoute():
         data = file.read()
         vocabList = data.split("\n")
         file.close()
+
         godswords = []
-        for i in range(len(numbers)):
-            godswords.append(vocabList[numbers[i]])
+
+        for i in numbers:
+            godswords.append(vocabList[i])
 
         speaketh = ' '.join(godswords)
         data = {"Count": f"{query}", "Godspeak": f"{speaketh}", "Time": f"{unixTime}"}
@@ -40,14 +42,16 @@ def requestRoute():
     except:
         s = 400
         data = {"Time": f"{unixTime}"}
+
     r = make_response(data)
     r.minetype = 'application/json'
+
     return r
 
 @app.errorhandler(404)
 def page_not_found(e):
     return render_template('index.html'), 404
-if __name__ == "__main__":
 
+if __name__ == "__main__":
     app.run(host="0.0.0.0", port=80) # Port.
 
