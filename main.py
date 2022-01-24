@@ -1,20 +1,23 @@
 #!/usr/bin/env python3
 # Imports
 
-import time, json, urllib.request
+import time
+import json
+import random
+
+import urllib.request
+
 from flask import *
 from flask import render_template
+
 app = Flask(__name__, template_folder='./template', static_folder='./static')
 unixTime = round(time.time() * 1000)
+
 @app.route('/get/', methods=['GET'])
 def requestRoute():
     try:
-        query = str(request.args.get('num'))
-        output = urllib.request.urlopen(f"https://www.random.org/integers/?num={query}&min=0&max=712&col=1&base=10&format=plain&rnd=new")
-        numbers = []
-        for word in output.read().split():
-            if word.isdigit():
-                numbers.append(int(word))
+        query = int(request.args.get('num'))
+        numbers = [random.randint(0, 712) for i in range(query)]
 
         vocab = str(request.args.get('vocab'))
         if vocab.startswith('vocab'):
