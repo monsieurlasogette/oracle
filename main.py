@@ -26,7 +26,7 @@ def requestRoute():
         data = {"Status": 200, "Count": f"{query}", "Godspeak": f"{speaketh}", "Time": f"{unixTime}"}
     
     except:
-        data = {"Status: 400", "Time": f"{unixTime}"}
+        data = {"Status": "400", "Time": f"{unixTime}"}
     return json.dumps(data)
 
 if __name__ == "__main__":
