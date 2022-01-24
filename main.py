@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 # Imports
 
 import time, json, urllib.request
@@ -15,18 +16,24 @@ def requestRoute():
             if word.isdigit():
                 numbers.append(int(word))
 
-        file = open("Happy.TXT", "r")
+        vocab = str(request.args.get('vocab'))
+        if vocab.startswith('vocab'):
+            vocab = 'Vocab.DD'
+        else:
+            vocab = 'Happy.TXT'
+
+        file = open(vocab, "r")
         data = file.read()
         vocabList = data.split("\n")
-        file.close() 
-        godswords = [] 
+        file.close()
+        godswords = []
         for i in range(len(numbers)):
             godswords.append(vocabList[numbers[i]])
 
         speaketh = ' '.join(godswords)
         data = {"Count": f"{query}", "Godspeak": f"{speaketh}", "Time": f"{unixTime}"}
         s = 200
-    
+
     except:
         s = 400
         data = {"Time": f"{unixTime}"}
