@@ -18,7 +18,6 @@ unixTime = round(time.time() * 1000)
 def requestRoute():
     try:
         query = int(request.args.get('num'))
-        numbers = [random.randint(0, 712) for i in range(query)]
 
         dictionary = str(request.args.get('dict'))
         if dictionary.startswith('vocab'):
@@ -31,6 +30,7 @@ def requestRoute():
         vocabList = data.split("\n")
         file.close()
 
+        numbers = [random.randint(0, len(vocabList)-1) for i in range(query)]
         godswords = []
 
         for i in numbers:
