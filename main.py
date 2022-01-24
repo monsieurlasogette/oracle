@@ -1,9 +1,10 @@
 #!/usr/bin/env python3
 # Imports
 
+import os
+import random
 import time
 import json
-import random
 
 import urllib.request
 
@@ -53,5 +54,9 @@ def page_not_found(e):
     return render_template('index.html'), 404
 
 if __name__ == "__main__":
-    app.run(host="0.0.0.0", port=80) # Port.
+    port = 80
+    if os.geteuid() != 0:
+        port = 8080
+
+    app.run(host="0.0.0.0", port=port)
 
