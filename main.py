@@ -2,9 +2,10 @@
 
 import time, json, urllib.request
 from flask import *
-app = Flask(__name__)
+from flask import render_template
+app = Flask(__name__, template_folder='./template', static_folder='./static')
 unixTime = round(time.time() * 1000)
-@app.route('/request/', methods=['GET'])
+@app.route('/get/', methods=['GET'])
 def requestRoute():
     try:
         query = str(request.args.get('num'))
@@ -29,5 +30,9 @@ def requestRoute():
         data = {"Status": "400", "Time": f"{unixTime}"}
     return json.dumps(data)
 
+@app.errorhandler(404)
+def page_not_found(e):
+    return render_template('index.html'), 404
 if __name__ == "__main__":
-    app.run(port=767) # Port.
+
+    app.run(host="0.0.0.0", port=80) # Port.
