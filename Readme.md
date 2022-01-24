@@ -39,4 +39,4 @@ Usage within the Python Interpreter:
 don't_even_think_about_it
 ```
 ### Credit
-Thank you [xslendix](https://github.com/xslendix), for refractoring my code. View their fork at https://git.kiwifarms.net/slendi/TempleAPI
+Thank you [xslendix](https://github.com/xslendix), for refractoring my code. View their version at https://git.kiwifarms.net/slendi/TempleAPI
