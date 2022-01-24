@@ -28,6 +28,10 @@ If you wish to use the Vocab.DD vocabulary:
 ```sh
 curl -L -X GET -H 'Content-Type: application/json' http://i386.tk/get\?num\=5&dict=vocab
 ```
+If you wish to extract only the Godspeak data you can do so using jq:
+```sh
+curl -L -X GET -H 'Content-Type: application/json' http://i386.tk/get\?num\=1 | jq '.Godspeak'
+```
 
 ### Example
 Usage within the Python Interpreter:
