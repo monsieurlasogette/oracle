@@ -24,11 +24,15 @@ def requestRoute():
             godswords.append(vocabList[numbers[i]])
 
         speaketh = ' '.join(godswords)
-        data = {"Status": 200, "Count": f"{query}", "Godspeak": f"{speaketh}", "Time": f"{unixTime}"}
+        data = {"Count": f"{query}", "Godspeak": f"{speaketh}", "Time": f"{unixTime}"}
+        s = 200
     
     except:
-        data = {"Status": "400", "Time": f"{unixTime}"}
-    return json.dumps(data)
+        s = 400
+        data = {"Time": f"{unixTime}"}
+    r = make_response(data)
+    r.minetype = 'application/json'
+    return r
 
 @app.errorhandler(404)
 def page_not_found(e):
@@ -36,3 +40,4 @@ def page_not_found(e):
 if __name__ == "__main__":
 
     app.run(host="0.0.0.0", port=80) # Port.
+
