@@ -43,4 +43,4 @@ Usage within the Python Interpreter:
 don't_even_think_about_it
 ```
 ### Credit
-Thank you [xslendix](https://github.com/xslendix), for refractoring my code. View their version at https://git.kiwifarms.net/slendi/TempleAPI
+Thank you [xslendix](https://github.com/xslendix), for making some changes to my code. You can view their own take, with even more endpoints at https://git.kiwifarms.net/slendi/TempleAPI
