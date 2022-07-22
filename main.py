@@ -37,7 +37,7 @@ def requestRoute():
             godswords.append(vocabList[i])
 
         speaketh = ' '.join(godswords)
-        data = {"count": f"{query}", "godspeak": f"{speaketh}", "time": f"{unixTime}"}
+        data = {"count": f"{query}", "oracle": f"{speaketh}", "time": f"{unixTime}"}
         s = 200
 
     except:
